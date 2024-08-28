@@ -1,0 +1,30 @@
+modules:
+  jira:issueGlance:
+    - key: pannel-hello-world-glance
+      resource: main
+      resolver:
+        function: resolver
+      viewportSize: medium
+      title: pannel
+      label: Custom UI
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: static/hello-world/build
+app:
+  runtime:
+    name: nodejs18.x
+  id: ari:cloud:ecosystem::app/33a335b8-b5e0-4cd4-80fa-fc659edebb99
+permissions:
+  content:
+    styles:
+      - 'unsafe-inline'
+
+  scopes: []
+
+  external:
+    fetch:
+      backend:
+        - gitlab.com
